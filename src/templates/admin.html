@@ -1,0 +1,37 @@
+<!doctype html>
+<html><head><title>Admin</title></head><body>
+<h2>Admin Panel</h2>
+<h3>Users</h3>
+<ul>
+{% for u in users %}
+  <li>{{ u['id'] }} - {{ u['name'] }} ({{ u['email'] }})
+    <form method="post" action="{{ url_for('admin_delete_user', user_id=u['id']) }}" style="display:inline;">
+      <button>Delete</button>
+    </form>
+  </li>
+{% endfor %}
+</ul>
+
+<h3>Rides</h3>
+<ul>
+{% for r in rides %}
+  <li>{{ r['id'] }}: {{ r['origin'] }} → {{ r['destination'] }}
+    <form method="post" action="{{ url_for('admin_delete_ride', ride_id=r['id']) }}" style="display:inline;">
+      <button>Delete Ride</button>
+    </form>
+  </li>
+{% endfor %}
+</ul>
+
+<h3>Bookings</h3>
+<ul>
+{% for b in bookings %}
+  <li>{{ b['id'] }}: User #{{ b['user_id'] }} booked ride #{{ b['ride_id'] }}
+    <form method="post" action="{{ url_for('admin_delete_booking', booking_id=b['id']) }}" style="display:inline;">
+      <button>Delete</button>
+    </form>
+  </li>
+{% endfor %}
+</ul>
+
+</body></html>

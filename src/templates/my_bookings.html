@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>My Bookings - CARPOOL</title>
+  <style>
+    :root{
+  --main:#ff4d4d;
+  --bg:#f4f7fa;
+  --text:#222;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;background:var(--bg);color:var(--text)}
+.topbar{display:flex;justify-content:space-between;align-items:center;padding:14px 20px;background:var(--main);color:#fff}
+.logo{font-weight:700;font-size:1.4rem;color:#fff;text-decoration:none}
+.logo span{opacity:0.9}
+.topbar nav a{color:#fff;margin-left:14px;text-decoration:none;font-weight:600}
+.container{max-width:1100px;margin:36px auto;padding:0 16px}
+.hero{padding:40px;background:#fff;border-radius:12px;box-shadow:0 8px 20px rgba(0,0,0,0.05);text-align:center}
+.hero h1{margin:0 0 8px;font-size:2rem}
+.hero p{margin:0 0 14px;color:#666}
+.hero .btn,.btn{display:inline-block;padding:10px 16px;border-radius:8px;background:var(--main);color:#fff;text-decoration:none;font-weight:600}
+.btn.outline{background:transparent;border:2px solid var(--main);color:var(--main)}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;margin-top:18px}
+.card{background:#fff;padding:18px;border-radius:12px;box-shadow:0 8px 20px rgba(0,0,0,0.05);text-align:center}
+.card h3{margin:12px 0 8px}
+.card p{color:#666}
+.form-page{display:flex;justify-content:center;align-items:flex-start;min-height:60vh}
+.form-card{width:100%;max-width:420px;background:#fff;padding:24px;border-radius:12px;box-shadow:0 8px 20px rgba(0,0,0,0.05)}
+.form-card h2{margin:0 0 12px}
+.form-card label{display:block;margin-bottom:12px;color:#444;font-weight:600}
+.form-card input{width:100%;padding:10px;border-radius:8px;border:1px solid #e6e6e6;margin-top:6px}
+.inline-form{display:flex;gap:8px}
+.inline-form input{flex:1;padding:10px;border-radius:8px;border:1px solid #ddd}
+.results-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin-top:18px}
+.muted{color:#777}
+.footer{text-align:center;padding:20px;color:#777;margin-top:40px}
+@media(max-width:640px){.topbar nav{display:none}}
+
+  </style>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <header class="topbar">
+    <a class="logo" href="{{ url_for('home') }}">CAR<span>POOL</span></a>
+  </header>
+
+  <main class="container">
+    <h2>My Bookings</h2>
+    {% if bookings %}
+      <div class="results-grid">
+        {% for b in bookings %}
+          <div class="card">
+            <h3>Booking #{{ b['id'] }}</h3>
+            <p><b>Ride ID:</b> {{ b['ride_id'] }}</p>
+          </div>
+        {% endfor %}
+      </div>
+    {% else %}
+      <p class="muted">You have no bookings.</p>
+    {% endif %}
+  </main>
+</body>
+</html>

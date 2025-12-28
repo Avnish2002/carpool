@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CAR POOL</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <!-- Box Icon -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+    <!-- NAVBAR -->
+    <header>
+        <div class="nav container">
+            <!-- Menu Icon -->
+            <i class='bx bx-menu' id="menu-icon"></i>
+            <a href="#" class="Logo">CAR<span>POOL</span></a>
+            <ul class="navbar">
+                <li> <a href="#home" class="active">Home</a></li>
+                <li> <a href="#about">About</a></li>
+                <li> <a href="#cars">Cars</a></li>
+                <li> <a href="#parts">Parts</a></li>
+                <li> <a href="#blog">Car News</a></li>
+                <li> <a href="#services">Services</a></li>
+                <li><a href="{{ url_for('login') }}" class="btn-login">Login</a></li>
+                <li><a href="{{ url_for('register') }}" class="btn-register">Register</a></li>
+            </ul>
+            <!-- Search icon -->
+            <i class='bx bx-search' id="search-icon"></i>
+            <!-- Search Box -->
+            <div class="search-box container">
+                <input type="search" name="" id="" placeholder="Search here...">
+            </div>
+        </div>
+    </header>
+
+    <!-- HOME -->
+    <section class="home" id="home">
+        <div class="home-text">
+            <h1>We Have Everthing <br>Your <span>CAR</span> Need</h1>
+            <p>Welcome to <span> <b>CARPOOL</b></span>, your go-to destination for all things automotive. We are passionate about cars and committed to providing you with the latest information, reviews, and insights into the world of automobiles. Whether you're a car enthusiast, a potential buyer, or just looking for expert advice on vehicle maintenance and technology, we've got you covered.</p>
+            <!-- Home Button -->
+            <a href="#" class="Button">Discover Now</a>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section class="about container" id="about">
+        <div class="about-img">
+           <img src="{{ url_for('static', filename='Images/about.png') }}" alt="Image">
+
+
+        </div>
+        <div class="about-text">
+            <span>About Us</span>
+            <h2>Unleash Your Inner Speedster <br> with Precision and Power</h2>
+            <p> <span>CARPOOL</span> is your ultimate destination for all things automotive. We're your go-to resource for the latest car reviews, industry news, and expert insights. Whether you're a car enthusiast or in the market for a new vehicle, we've got you covered. Explore a world of exceptional cars, from high-performance sports cars to practical family vehicles. With our comprehensive guides and passionate team of experts, you'll make informed decisions and embark on your automotive journey with confidence. Join us on the road to discovery, where the world of cars comes to life.</p>
+
+            <a href="#" class="Button"> Learn More</a>
+        </div>
+    </section>
+   
+    <!-- Services -->
+    <section class="service" id="services">
+        <div class="heading">
+            <h2><span>Services We Provide</span></h2>
+            <p>Get hassel-free perodic car service and repair, wheel care, cashless insurance and many more.</p>
+        </div>
+        <!-- Service container -->
+        <div class="service-container container">
+            <div class="box">
+                <img src=".\static\Images\service_periodic.png" alt="Service">
+                <h3>Periodic Service</h3>
+            </div>
+            <div class="box">
+                <img src=".\static\Images\Service ac repair.png" alt="Service">
+                <h3>Ac & repair</h3>
+            </div>
+            <div class="box">
+                <img src=".\static\Images\Services Insurance.png" alt="Service">
+                <h3>Insurance Claim</h3>
+            </div>
+            <div class="box">
+                <img src=".\static\Images/Service Cleaning.png" alt="Service">
+                <h3>Cleaning & Detailing</h3>
+            </div>
+            <div class="box">
+                <img src=".\static\Images/Service Wheel Care.png" alt="Service">
+                <h3>Wheel Care</h3>
+            </div>
+            <div class="box">
+                <img src=".\static\Images/Service_batteries.png" alt="Service">
+                <h3>Batteries</h3>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Car Section -->
+     <section class="cars" id="cars">   
+        <div class="heading">
+            <span>All Cars</span>
+            <h2>We have it all</h2>
+            <p>At <span><b>CARPOOL</b></span>, we pride ourselves on offering a diverse and exhilarating selection of cars that cater to every automotive passion. Our showroom boasts an extensive range of vehicles, and for those who crave the thrill of the open road, we have an impressive collection of sports cars. From iconic brands like Porsche, Ferrari, and Lamborghini to high-performance models from manufacturers such as Audi, BMW, and Mercedes-Benz, we have over 10 exhilarating sports cars in our inventory. Whether you're seeking precision engineering, track-ready power, or pure adrenaline, our selection includes coupes and convertibles that exemplify the perfect fusion of style and speed. Explore our sports car lineup and experience the pure joy of driving as we cater to the needs of discerning enthusiasts and thrill-seekers alike.</p>
+        </div>
+
+        <!-- Cars Container -->
+        <div class="cars-container container">
+            <div class="box">
+                <img src=".\static\Images/porsche.avif" alt="CAR">
+                <h2>Porsche </h2>
+            </div>
+            <div class="box">
+                <img src=".\static\Images/AUDI.jpg" alt="CAR">
+                <h2>Audi </h2>
+            </div>
+            <div class="box">
+                <img src=".\static\Images/Ferrari.jpg" alt="CAR">
+                <h2>Ferrari </h2>
+            </div>
+            <div class="box">
+                <img src=".\static\Images/BMW.avif" alt="CAR">
+                <h2>BMW </h2>
+            </div>
+            <div class="box">
+                <img src=".\static\Images/Lambo.jpg" alt="CAR">
+                <h2>Lamborghini </h2>
+            </div>
+            <div class="box">
+                <img src=".\static\Images/Mercedes.jpg" alt="CAR">
+                <h2>Mercedes-Benz </h2>
+            </div>
+            <div class="box">
+                <img src=".\static\Images/FordMustang.jpg" alt="CAR">
+                <h2>Ford Mustang </h2>
+            </div>
+            <div class="box">
+                <img src=".\static\Images/Bugatti Veryon.webp" alt="CAR">
+                <h2>Bugatti Veryon</h2>
+            </div>
+            <div class="box">
+                <img src=".\static\Images/ContinentalGT.webp" alt="CAR">
+                <h2>Bentley Continental GT</h2>
+            </div>
+        </div>
+    
+    </section>
+    
+    <!-- Parts -->
+    <section class="parts" id="parts">
+        <div class="heading">
+            <span>Parts We Offer </span>
+            <p>Discover a world of precision and performance with our selection of high-quality sports car parts at <span>CARPOOL</span>. We offer a curated range of top-tier components and accessories, meticulously chosen to enhance the power, handling, and aesthetics of your sports car. Whether you're looking for performance upgrades, premium maintenance parts, or stylish accessories, we have what you need to keep your sports car running at its best and looking its finest. Elevate your driving experience with our exceptional sports car parts collection.</p>
+        </div>
+        <!-- Parts Container -->
+        <div class="parts-container container">
+            <!-- part-1 -->
+            <div class="box">
+                <img src=".\static\Images/part1.png" alt="">
+                <h3>Engine 007f</h3>
+                <span>$150.99</span>
+                <i class='bx bxs-star'>(15 Reviews)</i>
+                <a href="#" class="Button">Buy Now</a>
+                <a href="#" class="details"> View Details</a>
+            </div>
+            <!-- part-2 -->
+            <div class="box">
+                <img src=".\static\Images/part2.png" alt="">
+                 <h3>Pistion Gear</h3>
+                <span>$60.99</span>
+                <i class='bx bxs-star'>(11 Reviews)</i>
+                <a href="#" class="Button">Buy Now</a>
+                <a href="#" class="details"> View Details</a>
+            </div>
+            <!-- part-3 -->
+            <div class="box">
+                <img src=".\static\Images/part3.png" alt="">
+                <h3>Tool Kits</h3>
+                <span>$45.66</span>
+                <i class='bx bxs-star'>(26 Reviews)</i>
+                <a href="#" class="Button">Buy Now</a>
+                <a href="#" class="details"> View Details</a>
+            </div>
+            <!-- part-4 -->
+            <div class="box">
+                <img src=".\static\Images/part4.png" alt="">
+                <h3>Oil FIlter 3300</h3>
+                <span>$11</span>
+                <i class='bx bxs-star'>(48 Reviews)</i>
+                <a href="#" class="Button">Buy Now</a>
+                <a href="#" class="details"> View Details</a>
+            </div>
+            <!-- part-5 -->
+            <div class="box">
+                <img src=".\static\Images/part5.png" alt="">
+                <h3>ALternator</h3>
+                <span>$101.29</span>
+                <i class='bx bxs-star'>(13 Reviews)</i>
+                <a href="#" class="Button">Buy Now</a>
+                <a href="#" class="details"> View Details</a>
+            </div>
+            <!-- part-6 -->
+            <div class="box">
+                <img src=".\static\Images/part6.png" alt="">
+                <h3>MRF Tyres</h3>
+                <span>$38.39</span>
+                <i class='bx bxs-star'>(101 Reviews)</i>
+                <a href="#" class="Button">Buy Now</a>
+                <a href="#" class="details"> View Details</a>
+            </div>
+            <!-- part-7 -->
+            <div class="box">
+                <img src=".\static\Images/steer.webp" alt="">
+                <h3>Steering</h3>
+                <span>$18</span>
+                <i class='bx bxs-star'>(18 Reviews)</i>
+                <a href="#" class="Button">Buy Now</a>
+                <a href="#" class="details"> View Details</a>
+            </div>
+            <!-- part-8 -->
+            <div class="box">
+                <img src=".\static\Images/hubcup.webp" alt="">
+                <h3>Hubcap</h3>
+                <span>$9.99</span>
+                <i class='bx bxs-star'>(150 Reviews)</i>
+                <a href="#" class="Button">Buy Now</a>
+                <a href="#" class="details"> View Details</a>
+            </div>
+            <!-- part-9 -->
+            <div class="box">
+                <img src=".\static\Images/headlight.webp" alt="">
+                <h3>Headlight</h3>
+                <span>$20</span>
+                <i class='bx bxs-star'>(88 Reviews)</i>
+                <a href="#" class="Button">Buy Now</a>
+                <a href="#" class="details"> View Details</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog -->
+    <div class="blog" id="blog">
+        <div class="heading">
+            <span>Blog & News</span>
+            <h2>Our Blog Content</h2>
+            <p>Each of these blog posts will provide in-depth information and insights on the respective Car</p>
+        </div>
+        <!-- Blog Container -->
+        <div class="blog-container container">
+            <div class="box">
+                <img src=".\static\Images/Audiblog.png" alt="">
+                <span>20 April 2022</span>
+                <h3>Audi's Sizzling S-Series: Unleashing the Power of Performance</h3>
+                <p>This blog post explores Audi's S-Series models, discussing their performance capabilities, key features, and what makes them appealing to sports car enthusiasts.</p>
+                <a href="#" class="blog-button">Read More <i class='bx bx-right-arrow-alt'></i></a>
+            </div>
+
+            <div class="box">
+                <img src=".\static\Images/GTblog.jpg" alt="">
+                <span>19 Mar 2023</span>
+                <h3>Bentley Continental GT: Where Luxury Meets Speed</h3>
+                <p>In this post, readers will learn about the Bentley Continental GT, focusing on its blend of luxury and high-performance features, as well as its history and heritage.</p>
+                <a href="#" class="blog-button">Read More <i class='bx bx-right-arrow-alt'></i></a>
+            </div>
+
+           
+            <div class="box">
+                <img src=".\static\Images/RRblog.webp" alt="">
+                <span>07 Mar 2022</span>
+                <h3>Rolls-Royce Black Badge: A New Dawn for Performance Luxury</h3>
+                <p>Readers will explore the Rolls-Royce Black Badge series, discovering how it combines luxury with enhanced performance, and what sets it apart in the luxury car segment</p>
+                <a href="#" class="blog-button">Read More <i class='bx bx-right-arrow-alt'></i></a>
+            </div>
+
+            <div class="box">
+                <img src=".\static\Images/MUSTANGBLOG.jpg" alt="">
+                <span>14 oct 2021</span>
+                <h3>History of the Ford Mustang: An American Icon</h3>
+                <p>This post takes readers on a journey through the history of the Ford Mustang, highlighting its evolution and iconic status in American automotive culture.</p>
+                <a href="#" class="blog-button">Read More <i class='bx bx-right-arrow-alt'></i></a>
+            </div>
+ 
+            <div class="box">
+                <img src=".\static\Images/Bugattiblog.jpg" alt="">
+                <span>10 April 2021</span>
+                <h3>Bugatti: The Hypercar Pinnacle - Chiron and Beyond</h3>
+                <p>This blog delves into the Bugatti brand, highlighting its flagship model, the Chiron, and discussing Bugatti's legacy in the world of hypercars.</p>
+                <a href="#" class="blog-button">Read More <i class='bx bx-right-arrow-alt'></i></a>
+            </div>
+
+            <div class="box">
+                <img src=".\static\Images/Hu vs Av blog.jpg" alt="">
+                <span>1 Jan 2023</span>
+                <h3>Lamborghini Huracán vs. Aventador: A Supercar Showdown</h3>
+                <p>This blog post compares two iconic Lamborghini models, the Huracán and Aventador, offering insights into their performance, design, and unique characteristics.
+                </p>
+                <a href="#" class="blog-button">Read More <i class='bx bx-right-arrow-alt'></i></a>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Footer -->
+    <section class="footer">
+        <div class="footer-container container">
+            <div class="footer-box">
+                <a href="#" class="Logo">CAR<span>POOL</span></a>
+                <div class="social">
+                    <a href=""><i class='bx bxl-facebook-circle'></i></a>
+                    <a href=""><i class='bx bxl-twitter'></i></a>
+                    <a href=""><i class='bx bxl-instagram'></i></a>
+                    <a href=""><i class='bx bxl-youtube'></i></a>
+                    <a href=""><i class='bx bxl-linkedin-square'></i></a>
+                </div>
+            </div>
+
+                <div class="footer-box">
+                    <h3>Page</h3>
+                    <a href="#">Home</a>
+                    <a href="#">Cars</a>
+                    <a href="#">About</a>
+                    <a href="#">Parts</a>
+                    <a href="#">Car News</a>
+                    <a href="#">Services</a>
+                </div>
+
+                <div class="footer-box">
+                    <h3>Legal</h3>
+                    <a href="#">Privacy</a>
+                    <a href="#">Refund Policies</a>
+                    <a href="#">Cookies</a>
+                    <a href="#">Security</a> 
+                </div>
+
+                <div class="footer-box">
+                    <h3>Account</h3>
+                    <a href="#">Profile</a>
+                    <a href="#">Billing</a>
+                    <a href="#">Setting</a>
+                    <a href="#">Notification</a>
+                </div>
+
+                <div class="footer-box">
+                    <h3>Company</h3>
+                    <p>Community</p>
+                    <p>Help Center</p>
+                    <p>Support</p>
+                    <p>Contact</p>  
+                </div>
+        </div>
+    </section>
+
+    <!-- Copyrigt -->
+    <div class="copyright">
+        <p>&copy; Carpool  || All Right Reserved</p>
+    </div>
+
+ 
+  <script src="{{ url_for('static', filename='car.js') }}"></script>
+
+ 
+    
+</body>
+</html>

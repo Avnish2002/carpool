@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - CARPOOL</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>.login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+   
+}
+
+.form-box {
+   
+    padding: 50px 40px;
+    border-radius: 15px;
+    width: 100%;
+    max-width: 450px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    animation: fadeIn 1s ease forwards;
+}
+
+.form-box h2 {
+    text-align: center;
+    margin-bottom: 30px;
+   
+    font-size: 28px;
+}
+
+.input-box {
+    position: relative;
+    margin-bottom: 25px;
+}
+
+.input-box input {
+    width: 100%;
+    padding: 15px 15px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    outline: none;
+    transition: 0.3s;
+}
+
+.input-box input:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px #007bff;
+}
+
+.input-box label {
+    position: absolute;
+    top: 50%;
+    left: 15px;
+   
+    transform: translateY(-50%);
+    pointer-events: none;
+    transition: 0.3s;
+}
+
+.input-box input:focus + label,
+.input-box input:not(:placeholder-shown) + label {
+    top: -10px;
+    font-size: 12px;
+   
+    background: #fff;
+    padding: 0 5px;
+}
+
+.Button {
+    width: 100%;
+    padding: 15px;
+    border: none;
+   
+   
+    font-size: 18px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.Button:hover {
+   
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.login p {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 14px;
+
+}
+
+.login p a {
+  
+    text-decoration: none;
+}
+
+.login p a:hover {
+    text-decoration: underline;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(-20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Header Fix */
+header .nav.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+  
+}
+
+header .Logo {
+    font-size: 28px;
+    font-weight: 700;
+  
+    text-decoration: none;
+}
+
+header .navbar li a {
+   
+    margin-left: 20px;
+    font-weight: 500;
+}
+
+header .navbar li a.active {
+    text-decoration: underline;
+}</style>
+</head>
+<body>
+    <header>
+        <div class="nav container">
+            <i class='bx bx-menu' id="menu-icon"></i>
+            <a href="{{ url_for('home') }}" class="Logo">CAR<span>POOL</span></a>
+            <ul class="navbar">
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('login') }}" class="active">Login</a></li>
+                <li><a href="{{ url_for('register') }}">Register</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <section class="login container">
+        <div class="form-box">
+            <h2>Login to Your Account</h2>
+            <form action="{{ url_for('login') }}" method="POST">
+                <div class="input-box">
+                    <input type="email" name="email" required>
+                    <label>Email</label>
+                </div>
+                <div class="input-box">
+                    <input type="password" name="password" required>
+                    <label>Password</label>
+                </div>
+                <button type="submit" class="Button">Login</button>
+            </form>
+            <p>Don't have an account? <a href="{{ url_for('register') }}">Register here</a></p>
+        </div>
+    </section>
+
+    <script src="{{ url_for('static', filename='car.js') }}"></script>
+</body>
+</html>

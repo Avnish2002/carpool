@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search Rides</title>
+</head>
+<body>
+
+<h2>Search Rides</h2>
+
+<form method="POST">
+    <input type="text" name="keyword" placeholder="Enter origin or destination">
+    <button type="submit">Search</button>
+</form>
+
+<hr>
+
+{% if rides %}
+    <h3>Available Rides</h3>
+    {% for ride in rides %}
+        <div style="border:1px solid #ccc; padding:10px; margin:10px;">
+            <p><b>Car:</b> {{ ride.car_name }}</p>
+            <p><b>From:</b> {{ ride.start_location }}</p>
+            <p><b>To:</b> {{ ride.end_location }}</p>
+            <p><b>Seats Left:</b> {{ ride.seats }}</p>
+            <p><b>Price:</b> ₹{{ ride.price }}</p>
+
+            <form action="{{ url_for('book_ride', ride_id=ride.id) }}" method="POST">
+                <button type="submit">Book Ride</button>
+            </form>
+        </div>
+    {% endfor %}
+{% else %}
+    <p>No rides found.</p>
+{% endif %}
+
+</body>
+</html>

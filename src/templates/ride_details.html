@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ride Detail - CARPOOL</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        body {margin:0; font-family: 'Poppins', sans-serif; background:#f4f7fa;}
+        header {background:#ff4d4d; padding:15px 0; color:#fff;}
+        .nav.container {display:flex; justify-content:space-between; align-items:center; max-width:1200px; margin:auto; padding:0 20px;}
+        .Logo {font-size:1.8rem; font-weight:bold; color:#fff; text-decoration:none;}
+        .Logo span {opacity:0.8;}
+        .navbar {list-style:none; display:flex; gap:20px; margin:0;}
+        .navbar li a {text-decoration:none; color:#fff; font-weight:500; transition:0.3s;}
+        .navbar li a:hover {color:#ffe6e6;}
+
+        .ride-detail-container {
+            max-width:800px;
+            margin:50px auto;
+            background:#fff;
+            padding:30px 25px;
+            border-radius:15px;
+            box-shadow:0 10px 25px rgba(0,0,0,0.1);
+        }
+        .ride-detail-container h2 {color:#222; margin-bottom:15px;}
+        .ride-detail-container p {color:#555; margin-bottom:10px;}
+        .ratings-container {margin-top:25px;}
+        .rating-card {
+            background:#f9f9f9; padding:12px 15px; border-radius:10px; margin-bottom:12px;
+        }
+        .rating-card p {margin:0; color:#333;}
+        .Button {
+            padding:8px 20px; border-radius:8px; background:#ff4d4d; color:#fff; text-decoration:none; display:inline-block; transition:0.3s; margin-top:15px;
+        }
+        .Button:hover {background:#e60000;}
+        form textarea {width:100%; padding:10px; border-radius:8px; border:1px solid #ccc; margin-bottom:10px; resize:none;}
+        form input[type=number] {width:80px; padding:8px; border-radius:6px; border:1px solid #ccc;}
+    </style>
+</head>
+<body>
+    <header>
+        <div class="nav container">
+            <a href="{{ url_for('home') }}" class="Logo">CAR<span>POOL</span></a>
+            <ul class="navbar">
+                <li><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
+                <li><a href="{{ url_for('logout') }}">Logout</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <div class="ride-detail-container">
+        <h2>{{ ride['origin'] }} → {{ ride['destination'] }}</h2>
+        <p><b>Driver:</b> {{ ride['driver_name'] }}</p>
+        <p><b>Date & Time:</b> {{ ride['datetime'] }}</p>
+        <p><b>Seats Available:</b> {{ ride['seats'] }}</p>
+        <p><b>Price:</b> {{ ride['price'] }}</p>
+        <p><b>Car Details:</b> {{ ride['car_details'] }}</p>
+
+        {% if logged_in %}
+        <form action="{{ url_for('book_ride', ride_id=ride['id']) }}" method="POST">
+            <label>Seats to Book:</label>
+            <input type="number" name="seats" min="1" max="{{ ride['seats'] }}" value="1">
+            <button type="submit" class="Button">Book Ride</button>
+        </form>
+        {% else %}
+        <p style="color:red;">Login to book this ride.</p>
+        {% endif %}
+
+        <div class="ratings-container">
+            <h3>Ratings & Reviews</h3>
+            {% for rating in ratings %}
+            <div class="rating-card">
+                <p><b>{{ rating['user_id'] }}:</b> {{ rating['rating'] }}/5</p>
+                <p>{{ rating['review'] }}</p>
+            </div>
+            {% else %}
+            <p>No reviews yet.</p>
+            {% endfor %}
+
+            {% if logged_in %}
+            <form action="" method="POST">
+                <label>Rate this ride (1-5):</label>
+                <input type="number" name="rating" min="1" max="5" required>
+                <label>Review:</label>
+                <textarea name="review" rows="3" placeholder="Write your review..."></textarea>
+                <button type="submit" class="Button">Submit Rating</button>
+            </form>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>
